@@ -14,6 +14,7 @@ import {
     Flame,
     Edit3,
     Smartphone,
+    Pin,
     ChevronDown,
     Crosshair,
     MousePointer,
@@ -42,6 +43,8 @@ interface SettingsPanelProps {
     onBitrateChange?: (bitrate: string) => void;
     cursorStyle?: 'crosshair' | 'default';
     onCursorStyleChange?: (style: 'crosshair' | 'default') => void;
+    persistentMirroring?: boolean;
+    onPersistentMirroringChange?: (enabled: boolean) => void;
     onResetSettings?: () => void;
 }
 
@@ -65,6 +68,8 @@ export function SettingsPanel({
     onBitrateChange,
     cursorStyle = 'crosshair',
     onCursorStyleChange,
+    persistentMirroring = false,
+    onPersistentMirroringChange,
     onResetSettings,
 }: SettingsPanelProps) {
     const [localQuality, setLocalQuality] = useState(quality);
@@ -488,6 +493,37 @@ export function SettingsPanel({
                             onClick={(e) => {
                                 e.stopPropagation();
                                 onTouchFeedbackChange?.(!touchFeedback);
+                            }}
+                        >
+                            <div className="toggle-knob" />
+                        </div>
+                    </button>
+
+                    <button
+                        className="setting-item"
+                        onClick={() => onPersistentMirroringChange?.(!persistentMirroring)}
+                    >
+                        <div className="setting-info">
+                            <Pin className="setting-icon" size={16} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                                <span className="setting-label">Persistent Mirroring</span>
+                                <span
+                                    style={{
+                                        fontSize: 10,
+                                        color: 'var(--vsc-text-muted)',
+                                        lineHeight: 1.3,
+                                    }}
+                                >
+                                    Keep stream running while sidebar is hidden (device keeps
+                                    encoding)
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            className={`toggle-switch ${persistentMirroring ? 'active' : ''}`}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onPersistentMirroringChange?.(!persistentMirroring);
                             }}
                         >
                             <div className="toggle-knob" />
