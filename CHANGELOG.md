@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1] - 2026-05-13
+
+### 🐛 Bug Fixes
+
+- **Missing Log Components**: Added missing log viewer components (`LogEntryRow`, `LogsPanel`, `EnhancedLogEntryRow`, `EnhancedLogsPanel`) required for the Logcat and shell log views to render correctly
+
 ## [1.1.0] - 2026-01-10
 
 ### ✨ Features
