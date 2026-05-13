@@ -505,7 +505,19 @@ export function SettingsPanel({
                     >
                         <div className="setting-info">
                             <Pin className="setting-icon" size={16} />
-                            <span className="setting-label">Persistent Mirroring</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                                <span className="setting-label">Persistent Mirroring</span>
+                                <span
+                                    style={{
+                                        fontSize: 10,
+                                        color: 'var(--vsc-text-muted)',
+                                        lineHeight: 1.3,
+                                    }}
+                                >
+                                    Keep stream running while sidebar is hidden (device keeps
+                                    encoding)
+                                </span>
+                            </div>
                         </div>
                         <div
                             className={`toggle-switch ${persistentMirroring ? 'active' : ''}`}

@@ -28,7 +28,7 @@ export class ScrcpySidebarView {
     private _appManager: AppManager | null = null;
     private _persistentMirroringEnabled: boolean = false;
     private _wasStreamingBeforeHidden: boolean = false;
-    private _isViewVisible: boolean = true;
+    private _isViewVisible: boolean;
     private _adbShellService: AdbShellService;
 
     // Maximum buffer size before dropping frames (2MB)
@@ -42,6 +42,7 @@ export class ScrcpySidebarView {
         this._view = view;
         this._extensionUri = context.extensionUri;
         this._context = context;
+        this._isViewVisible = view.visible;
 
         this._adbShellService = new AdbShellService(context);
 
