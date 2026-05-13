@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0] - 2026-05-13
+
+### ✨ Features
+
+- **Persistent Mirroring**: Added a toggle in Settings to keep the stream running while the sidebar is hidden — the device continues encoding so mirroring resumes instantly when the panel is shown again. Frames are skipped while hidden to save CPU
+
+### 🐛 Bug Fixes
+
+- **View Visibility Guard**: Fixed `_isViewVisible` being initialized to `true` unconditionally; it is now read from the actual view state at construction time so the hidden-frame skip guard is correct before the first visibility event fires
+
 ## [1.1.1] - 2026-05-13
 
 ### 🐛 Bug Fixes
