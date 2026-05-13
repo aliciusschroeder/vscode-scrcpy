@@ -28,14 +28,6 @@
     "phone"
   ],
   "icon": "images/icon.png",
-  "activationEvents": [
-    "onView:scrcpySidebar",
-    "onCommand:vscode-scrcpy.startMirror",
-    "onCommand:vscode-scrcpy.stopMirror",
-    "onCommand:vscode-scrcpy.openFileManager",
-    "onCommand:vscode-scrcpy.openShellLogs",
-    "onCommand:vscode-scrcpy.openLogcat"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
